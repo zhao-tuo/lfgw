@@ -1,0 +1,24 @@
+{
+    "lfgwApp": {
+        "saleAmt1" : {
+            "home": {
+                "title": "Sale Amt 1 S",
+                "createLabel": "创建新 Sale Amt 1",
+                "createOrEditLabel": "创建或编辑 Sale Amt 1"
+            },
+            "created": "Sale Amt 1 {{ param }} 创建成功",
+            "updated": "Sale Amt 1 {{ param }} 更新成功",
+            "deleted": "Sale Amt 1 {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Sale Amt 1 {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Sale Amt 1"
+            },
+            "amt1Id": "Amt 1 Id",
+            "projectId": "Project Id",
+            "shopId": "Shop Id",
+            "amt1Info": "Amt 1 Info"
+        }
+    }
+}

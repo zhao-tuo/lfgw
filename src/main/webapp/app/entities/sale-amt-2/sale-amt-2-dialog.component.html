@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySaleAmt2Label" jhiTranslate="lfgwApp.saleAmt2.home.createOrEditLabel">Create or edit a Sale Amt 2</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!saleAmt2.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="saleAmt2.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="lfgwApp.saleAmt2.amt2Id" for="field_amt2Id">Amt 2 Id</label>
+            <input type="number" class="form-control" name="amt2Id" id="field_amt2Id"
+                [(ngModel)]="saleAmt2.amt2Id" required/>
+            <div [hidden]="!(editForm.controls.amt2Id?.dirty && editForm.controls.amt2Id?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.amt2Id?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.amt2Id?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="lfgwApp.saleAmt2.projectId" for="field_projectId">Project Id</label>
+            <input type="number" class="form-control" name="projectId" id="field_projectId"
+                [(ngModel)]="saleAmt2.projectId" required/>
+            <div [hidden]="!(editForm.controls.projectId?.dirty && editForm.controls.projectId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.projectId?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.projectId?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="lfgwApp.saleAmt2.shopId" for="field_shopId">Shop Id</label>
+            <input type="number" class="form-control" name="shopId" id="field_shopId"
+                [(ngModel)]="saleAmt2.shopId" required/>
+            <div [hidden]="!(editForm.controls.shopId?.dirty && editForm.controls.shopId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.shopId?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.shopId?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="lfgwApp.saleAmt2.amt2Info" for="field_amt2Info">Amt 2 Info</label>
+            <input type="text" class="form-control" name="amt2Info" id="field_amt2Info"
+                [(ngModel)]="saleAmt2.amt2Info" required/>
+            <div [hidden]="!(editForm.controls.amt2Info?.dirty && editForm.controls.amt2Info?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.amt2Info?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

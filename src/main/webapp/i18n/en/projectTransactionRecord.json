@@ -1,0 +1,23 @@
+{
+    "lfgwApp": {
+        "projectTransactionRecord" : {
+            "home": {
+                "title": "Project Transaction Records",
+                "createLabel": "Create a new Project Transaction Record",
+                "createOrEditLabel": "Create or edit a Project Transaction Record"
+            },
+            "created": "A new Project Transaction Record is created with identifier {{ param }}",
+            "updated": "A Project Transaction Record is updated with identifier {{ param }}",
+            "deleted": "A Project Transaction Record is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Transaction Record {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Transaction Record"
+            },
+            "recordId": "Record Id",
+            "projectId": "Project Id",
+            "transactionYear": "Transaction Year"
+        }
+    }
+}

@@ -7,6 +7,11 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "数据",
+                "projectInfo": "Project Info",
+                "projectTransactionRecord": "Project Transaction Record",
+                "shopInfo": "Shop Info",
+                "saleAmt1": "Sale Amt 1",
+                "saleAmt2": "Sale Amt 2",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

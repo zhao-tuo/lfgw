@@ -1,0 +1,38 @@
+
+<div *ngIf="saleAmt2">
+    <h2><span jhiTranslate="lfgwApp.saleAmt2.detail.title">Sale Amt 2</span> {{saleAmt2.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="lfgwApp.saleAmt2.amt2Id">Amt 2 Id</span></dt>
+        <dd>
+            <span>{{saleAmt2.amt2Id}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.saleAmt2.projectId">Project Id</span></dt>
+        <dd>
+            <span>{{saleAmt2.projectId}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.saleAmt2.shopId">Shop Id</span></dt>
+        <dd>
+            <span>{{saleAmt2.shopId}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.saleAmt2.amt2Info">Amt 2 Info</span></dt>
+        <dd>
+            <span>{{saleAmt2.amt2Info}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sale-amt-2/'+ saleAmt2.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

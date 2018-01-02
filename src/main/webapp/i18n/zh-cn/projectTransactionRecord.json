@@ -1,0 +1,23 @@
+{
+    "lfgwApp": {
+        "projectTransactionRecord" : {
+            "home": {
+                "title": "Project Transaction Records",
+                "createLabel": "创建新 Project Transaction Record",
+                "createOrEditLabel": "创建或编辑 Project Transaction Record"
+            },
+            "created": "Project Transaction Record {{ param }} 创建成功",
+            "updated": "Project Transaction Record {{ param }} 更新成功",
+            "deleted": "Project Transaction Record {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Project Transaction Record {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Project Transaction Record"
+            },
+            "recordId": "Record Id",
+            "projectId": "Project Id",
+            "transactionYear": "Transaction Year"
+        }
+    }
+}

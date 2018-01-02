@@ -1,0 +1,34 @@
+
+<div *ngIf="projectTransactionRecord">
+    <h2><span jhiTranslate="lfgwApp.projectTransactionRecord.detail.title">Project Transaction Record</span> {{projectTransactionRecord.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="lfgwApp.projectTransactionRecord.recordId">Record Id</span></dt>
+        <dd>
+            <span>{{projectTransactionRecord.recordId}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.projectTransactionRecord.projectId">Project Id</span></dt>
+        <dd>
+            <span>{{projectTransactionRecord.projectId}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.projectTransactionRecord.transactionYear">Transaction Year</span></dt>
+        <dd>
+            <span>{{projectTransactionRecord.transactionYear}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'project-transaction-record/'+ projectTransactionRecord.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="lfgwApp.saleAmt2.home.title">Sale Amt 2 S</span>
+        <button class="btn btn-primary float-right jh-create-entity create-sale-amt-2" [routerLink]="['/', { outlets: { popup: ['sale-amt-2-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="lfgwApp.saleAmt2.home.createLabel">
+            Create new Sale Amt 2
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="saleAmt2S">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="amt2Id"><span jhiTranslate="lfgwApp.saleAmt2.amt2Id">Amt 2 Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="projectId"><span jhiTranslate="lfgwApp.saleAmt2.projectId">Project Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="shopId"><span jhiTranslate="lfgwApp.saleAmt2.shopId">Shop Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="amt2Info"><span jhiTranslate="lfgwApp.saleAmt2.amt2Info">Amt 2 Info</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let saleAmt2 of saleAmt2S ;trackBy: trackId">
+                <td><a [routerLink]="['../sale-amt-2', saleAmt2.id ]">{{saleAmt2.id}}</a></td>
+                <td>{{saleAmt2.amt2Id}}</td>
+                <td>{{saleAmt2.projectId}}</td>
+                <td>{{saleAmt2.shopId}}</td>
+                <td>{{saleAmt2.amt2Info}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sale-amt-2', saleAmt2.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sale-amt-2/'+ saleAmt2.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sale-amt-2/'+ saleAmt2.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="saleAmt2S && saleAmt2S.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

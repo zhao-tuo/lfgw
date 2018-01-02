@@ -1,0 +1,24 @@
+{
+    "lfgwApp": {
+        "saleAmt2" : {
+            "home": {
+                "title": "Sale Amt 2 S",
+                "createLabel": "Create a new Sale Amt 2",
+                "createOrEditLabel": "Create or edit a Sale Amt 2"
+            },
+            "created": "A new Sale Amt 2 is created with identifier {{ param }}",
+            "updated": "A Sale Amt 2 is updated with identifier {{ param }}",
+            "deleted": "A Sale Amt 2 is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sale Amt 2 {{ id }}?"
+            },
+            "detail": {
+                "title": "Sale Amt 2"
+            },
+            "amt2Id": "Amt 2 Id",
+            "projectId": "Project Id",
+            "shopId": "Shop Id",
+            "amt2Info": "Amt 2 Info"
+        }
+    }
+}

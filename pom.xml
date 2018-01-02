@@ -82,6 +82,7 @@
         <sonar.tests>${project.basedir}/src/test/</sonar.tests>
 
         <!-- jhipster-needle-maven-property -->
+        <sharding-jdbc.version>2.0.1</sharding-jdbc.version>
     </properties>
 
     <dependencyManagement>
@@ -358,6 +359,11 @@
             <artifactId>spring-security-data</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <dependency>
+            <groupId>io.shardingjdbc</groupId>
+            <artifactId>sharding-jdbc-core-spring-boot-starter</artifactId>
+            <version>${sharding-jdbc.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -526,10 +532,10 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <url>jdbc:mysql://localhost:3306/lfgw</url>
-                    <defaultSchemaName>lfgw</defaultSchemaName>
+                    <url>jdbc:mysql://192.168.36.109:3306</url>
+                    <defaultSchemaName>main</defaultSchemaName>
                     <username>root</username>
-                    <password></password>
+                    <password>123456</password>
                     <referenceUrl>hibernate:spring:com.lf.gw.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
