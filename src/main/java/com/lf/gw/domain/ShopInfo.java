@@ -26,7 +26,7 @@ public class ShopInfo implements Serializable {
         pkColumnName = "PK_NAME",
         valueColumnName = "PK_VALUE",
         pkColumnValue = "SHOP_INFO_ID",
-        allocationSize=10,
+        allocationSize = 10,
         initialValue = 0
     )
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "ID_GENERATOR")
@@ -36,13 +36,14 @@ public class ShopInfo implements Serializable {
     @Column(name = "shop_id", nullable = false)
     private Long shopId;
 
-    @NotNull
-    @Column(name = "project_id", nullable = false)
-    private Long projectId;
 
     @NotNull
     @Column(name = "shop_name", nullable = false)
     private String shopName;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private ProjectInfo projectInfo;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -66,19 +67,6 @@ public class ShopInfo implements Serializable {
         this.shopId = shopId;
     }
 
-    public Long getProjectId() {
-        return projectId;
-    }
-
-    public ShopInfo projectId(Long projectId) {
-        this.projectId = projectId;
-        return this;
-    }
-
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
-
     public String getShopName() {
         return shopName;
     }
@@ -90,6 +78,19 @@ public class ShopInfo implements Serializable {
 
     public void setShopName(String shopName) {
         this.shopName = shopName;
+    }
+
+    public ProjectInfo getProjectInfo() {
+        return projectInfo;
+    }
+
+    public ShopInfo projectInfo(ProjectInfo projectInfo) {
+        this.projectInfo = projectInfo;
+        return this;
+    }
+
+    public void setProjectInfo(ProjectInfo projectInfo) {
+        this.projectInfo = projectInfo;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -118,7 +119,6 @@ public class ShopInfo implements Serializable {
         return "ShopInfo{" +
             "id=" + getId() +
             ", shopId=" + getShopId() +
-            ", projectId=" + getProjectId() +
             ", shopName='" + getShopName() + "'" +
             "}";
     }

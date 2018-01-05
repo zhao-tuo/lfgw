@@ -8,6 +8,7 @@ import { LfgwTestModule } from '../../../test.module';
 import { ShopInfoDialogComponent } from '../../../../../../main/webapp/app/entities/shop-info/shop-info-dialog.component';
 import { ShopInfoService } from '../../../../../../main/webapp/app/entities/shop-info/shop-info.service';
 import { ShopInfo } from '../../../../../../main/webapp/app/entities/shop-info/shop-info.model';
+import { ProjectInfoService } from '../../../../../../main/webapp/app/entities/project-info';
 
 describe('Component Tests', () => {
 
@@ -23,6 +24,7 @@ describe('Component Tests', () => {
                 imports: [LfgwTestModule],
                 declarations: [ShopInfoDialogComponent],
                 providers: [
+                    ProjectInfoService,
                     ShopInfoService
                 ]
             })

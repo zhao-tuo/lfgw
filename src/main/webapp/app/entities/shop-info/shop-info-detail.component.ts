@@ -15,6 +15,8 @@ export class ShopInfoDetailComponent implements OnInit, OnDestroy {
     shopInfo: ShopInfo;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
+    searchOptions:any;
+    selectedOption:any;
 
     constructor(
         private eventManager: JhiEventManager,
@@ -24,6 +26,7 @@ export class ShopInfoDetailComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.searchOptions=[{value:'jack',label:'jack'},{value: 'lucy', label: 'Lucy'},{value: 'tom', label: 'Tom'}];
         this.subscription = this.route.params.subscribe((params) => {
             this.load(params['id']);
         });

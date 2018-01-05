@@ -5,6 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgJhipsterModule } from 'ng-jhipster';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CookieModule } from 'ngx-cookie';
+import {NgZorroAntdModule} from "ng-zorro-antd";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     imports: [
@@ -16,14 +18,18 @@ import { CookieModule } from 'ngx-cookie';
             defaultI18nLang: 'zh-cn'
         }),
         InfiniteScrollModule,
-        CookieModule.forRoot()
+        CookieModule.forRoot(),
+        NgZorroAntdModule.forRoot()
+
     ],
     exports: [
         FormsModule,
         CommonModule,
         NgbModule,
         NgJhipsterModule,
-        InfiniteScrollModule
+        InfiniteScrollModule,
+        NgZorroAntdModule,
+        BrowserAnimationsModule
     ]
 })
 export class LfgwSharedLibsModule {}

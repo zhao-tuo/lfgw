@@ -2,9 +2,9 @@
     "lfgwApp": {
         "shopInfo" : {
             "home": {
-                "title": "Shop Infos",
-                "createLabel": "创建新 Shop Info",
-                "createOrEditLabel": "创建或编辑 Shop Info"
+                "title": "商铺信息",
+                "createLabel": "创建新商铺",
+                "createOrEditLabel": "创建或编辑商铺"
             },
             "created": "Shop Info {{ param }} 创建成功",
             "updated": "Shop Info {{ param }} 更新成功",
@@ -13,11 +13,12 @@
                 "question": "你确定要删除 Shop Info {{ id }} 吗？"
             },
             "detail": {
-                "title": "Shop Info"
+                "title": "商铺详情"
             },
-            "shopId": "Shop Id",
-            "projectId": "Project Id",
-            "shopName": "Shop Name"
+            "shopId": "商铺ID",
+            "shopName": "商铺名",
+            "projectInfo": "项目信息",
+            "projectName": "项目名"
         }
     }
 }

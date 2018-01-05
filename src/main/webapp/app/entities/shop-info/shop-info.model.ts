@@ -4,8 +4,9 @@ export class ShopInfo implements BaseEntity {
     constructor(
         public id?: number,
         public shopId?: number,
-        public projectId?: number,
         public shopName?: string,
+        public projectInfoId?: number,
+        public projectName?:string,
     ) {
     }
 }

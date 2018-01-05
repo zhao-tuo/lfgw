@@ -16,8 +16,9 @@
                 "title": "Shop Info"
             },
             "shopId": "Shop Id",
-            "projectId": "Project Id",
-            "shopName": "Shop Name"
+            "shopName": "Shop Name",
+            "projectInfo": "Project Info",
+            "projectName": "Project Name"
         }
     }
 }

@@ -4,11 +4,14 @@ import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { ShopInfo } from './shop-info.model';
 import { ShopInfoPopupService } from './shop-info-popup.service';
 import { ShopInfoService } from './shop-info.service';
+import { ProjectInfo, ProjectInfoService } from '../project-info';
+import { ResponseWrapper } from '../../shared';
+import {NgForm} from "@angular/forms";
 
 @Component({
     selector: 'jhi-shop-info-dialog',
@@ -19,15 +22,21 @@ export class ShopInfoDialogComponent implements OnInit {
     shopInfo: ShopInfo;
     isSaving: boolean;
 
+    projectinfos: ProjectInfo[];
+
     constructor(
         public activeModal: NgbActiveModal,
+        private jhiAlertService: JhiAlertService,
         private shopInfoService: ShopInfoService,
+        private projectInfoService: ProjectInfoService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.projectInfoService.query()
+            .subscribe((res: ResponseWrapper) => { this.projectinfos = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -58,6 +67,14 @@ export class ShopInfoDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(error: any) {
+        this.jhiAlertService.error(error.message, null, null);
+    }
+
+    trackProjectInfoById(index: number, item: ProjectInfo) {
+        return item.id;
     }
 }
 

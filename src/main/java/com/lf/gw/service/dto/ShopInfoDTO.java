@@ -3,6 +3,8 @@ package com.lf.gw.service.dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -16,10 +18,9 @@ public class ShopInfoDTO implements Serializable {
     private Long shopId;
 
     @NotNull
-    private Long projectId;
-
-    @NotNull
     private String shopName;
+
+    private Long projectInfoId;
 
     private String projectName;
 
@@ -47,20 +48,20 @@ public class ShopInfoDTO implements Serializable {
         this.shopId = shopId;
     }
 
-    public Long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
-
     public String getShopName() {
         return shopName;
     }
 
     public void setShopName(String shopName) {
         this.shopName = shopName;
+    }
+
+    public Long getProjectInfoId() {
+        return projectInfoId;
+    }
+
+    public void setProjectInfoId(Long projectInfoId) {
+        this.projectInfoId = projectInfoId;
     }
 
     @Override
@@ -89,8 +90,9 @@ public class ShopInfoDTO implements Serializable {
         return "ShopInfoDTO{" +
             "id=" + getId() +
             ", shopId=" + getShopId() +
-            ", projectId=" + getProjectId() +
-            ", shopName='" + getShopName() + "'" +
-            "}";
+            ", shopName='" + getShopName() +
+            ", projectInfoId='" + getProjectInfoId() +
+            ", projectName='" + getProjectName() +
+            "'" + "}";
     }
 }

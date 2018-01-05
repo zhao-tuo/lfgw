@@ -18,8 +18,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="shopId"><span jhiTranslate="lfgwApp.shopInfo.shopId">Shop Id</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="projectId"><span jhiTranslate="lfgwApp.shopInfo.projectId">Project Id</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="shopName"><span jhiTranslate="lfgwApp.shopInfo.shopName">Shop Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="projectInfoId"><span jhiTranslate="lfgwApp.shopInfo.projectName">Project Name</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -27,8 +27,12 @@
             <tr *ngFor="let shopInfo of shopInfos ;trackBy: trackId">
                 <td><a [routerLink]="['../shop-info', shopInfo.id ]">{{shopInfo.id}}</a></td>
                 <td>{{shopInfo.shopId}}</td>
-                <td>{{shopInfo.projectId}}</td>
                 <td>{{shopInfo.shopName}}</td>
+                <td>
+                    <div *ngIf="shopInfo.projectInfoId">
+                        <a [routerLink]="['../project-info', shopInfo.projectInfoId  ]" >{{shopInfo.projectName}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

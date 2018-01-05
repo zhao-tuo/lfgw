@@ -27,6 +27,18 @@
     minimist "^1.2.0"
     rxjs "^5.5.2"
 
+"@angular/animations@5.1.0":
+  version "5.1.0"
+  resolved "http://registry.npm.taobao.org/@angular/animations/download/@angular/animations-5.1.0.tgz#439135ed56355ec779791bf3ea7de1c711cd2185"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/cdk@^5.0.0":
+  version "5.0.3"
+  resolved "http://registry.npm.taobao.org/@angular/cdk/download/@angular/cdk-5.0.3.tgz#d4facf1958ebee6aea78f2da7507184cd8580596"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/cli@1.6.0":
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/@angular/cli/download/@angular/cli-1.6.0.tgz#eba521f6a8e4c2db628300baddbc4da13ca96998"
@@ -5268,7 +5280,7 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-moment@^2.11.2:
+moment@^2.11.2, moment@^2.18.1:
   version "2.20.1"
   resolved "http://registry.npm.taobao.org/moment/download/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
 
@@ -5377,6 +5389,14 @@ ng-jhipster@0.3.4:
   dependencies:
     "@ngx-translate/core" "^8.0.0"
     "@ngx-translate/http-loader" "^2.0.0"
+
+ng-zorro-antd@^0.6.9:
+  version "0.6.9"
+  resolved "http://registry.npm.taobao.org/ng-zorro-antd/download/ng-zorro-antd-0.6.9.tgz#963c6bd1265e8de65d7945986eaa380ffa0b9ba2"
+  dependencies:
+    "@angular/cdk" "^5.0.0"
+    moment "^2.18.1"
+    tslib "^1.7.1"
 
 ngx-cookie@2.0.1:
   version "2.0.1"

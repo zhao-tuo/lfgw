@@ -3,6 +3,7 @@ package com.lf.gw.web.rest;
 import com.lf.gw.LfgwApp;
 
 import com.lf.gw.domain.ShopInfo;
+import com.lf.gw.domain.ProjectInfo;
 import com.lf.gw.repository.ShopInfoRepository;
 import com.lf.gw.service.ShopInfoService;
 import com.lf.gw.service.dto.ShopInfoDTO;
@@ -43,9 +44,6 @@ public class ShopInfoResourceIntTest {
 
     private static final Long DEFAULT_SHOP_ID = 1L;
     private static final Long UPDATED_SHOP_ID = 2L;
-
-    private static final Long DEFAULT_PROJECT_ID = 1L;
-    private static final Long UPDATED_PROJECT_ID = 2L;
 
     private static final String DEFAULT_SHOP_NAME = "AAAAAAAAAA";
     private static final String UPDATED_SHOP_NAME = "BBBBBBBBBB";
@@ -95,8 +93,12 @@ public class ShopInfoResourceIntTest {
     public static ShopInfo createEntity(EntityManager em) {
         ShopInfo shopInfo = new ShopInfo()
             .shopId(DEFAULT_SHOP_ID)
-            .projectId(DEFAULT_PROJECT_ID)
             .shopName(DEFAULT_SHOP_NAME);
+        // Add required entity
+        ProjectInfo projectInfo = ProjectInfoResourceIntTest.createEntity(em);
+        em.persist(projectInfo);
+        em.flush();
+        shopInfo.setProjectInfo(projectInfo);
         return shopInfo;
     }
 
@@ -122,7 +124,6 @@ public class ShopInfoResourceIntTest {
         assertThat(shopInfoList).hasSize(databaseSizeBeforeCreate + 1);
         ShopInfo testShopInfo = shopInfoList.get(shopInfoList.size() - 1);
         assertThat(testShopInfo.getShopId()).isEqualTo(DEFAULT_SHOP_ID);
-        assertThat(testShopInfo.getProjectId()).isEqualTo(DEFAULT_PROJECT_ID);
         assertThat(testShopInfo.getShopName()).isEqualTo(DEFAULT_SHOP_NAME);
     }
 
@@ -167,25 +168,6 @@ public class ShopInfoResourceIntTest {
 
     @Test
     @Transactional
-    public void checkProjectIdIsRequired() throws Exception {
-        int databaseSizeBeforeTest = shopInfoRepository.findAll().size();
-        // set the field null
-        shopInfo.setProjectId(null);
-
-        // Create the ShopInfo, which fails.
-        ShopInfoDTO shopInfoDTO = shopInfoMapper.toDto(shopInfo);
-
-        restShopInfoMockMvc.perform(post("/api/shop-infos")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(shopInfoDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<ShopInfo> shopInfoList = shopInfoRepository.findAll();
-        assertThat(shopInfoList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkShopNameIsRequired() throws Exception {
         int databaseSizeBeforeTest = shopInfoRepository.findAll().size();
         // set the field null
@@ -215,7 +197,6 @@ public class ShopInfoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(shopInfo.getId().intValue())))
             .andExpect(jsonPath("$.[*].shopId").value(hasItem(DEFAULT_SHOP_ID.intValue())))
-            .andExpect(jsonPath("$.[*].projectId").value(hasItem(DEFAULT_PROJECT_ID.intValue())))
             .andExpect(jsonPath("$.[*].shopName").value(hasItem(DEFAULT_SHOP_NAME.toString())));
     }
 
@@ -231,7 +212,6 @@ public class ShopInfoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(shopInfo.getId().intValue()))
             .andExpect(jsonPath("$.shopId").value(DEFAULT_SHOP_ID.intValue()))
-            .andExpect(jsonPath("$.projectId").value(DEFAULT_PROJECT_ID.intValue()))
             .andExpect(jsonPath("$.shopName").value(DEFAULT_SHOP_NAME.toString()));
     }
 
@@ -256,7 +236,6 @@ public class ShopInfoResourceIntTest {
         em.detach(updatedShopInfo);
         updatedShopInfo
             .shopId(UPDATED_SHOP_ID)
-            .projectId(UPDATED_PROJECT_ID)
             .shopName(UPDATED_SHOP_NAME);
         ShopInfoDTO shopInfoDTO = shopInfoMapper.toDto(updatedShopInfo);
 
@@ -270,7 +249,6 @@ public class ShopInfoResourceIntTest {
         assertThat(shopInfoList).hasSize(databaseSizeBeforeUpdate);
         ShopInfo testShopInfo = shopInfoList.get(shopInfoList.size() - 1);
         assertThat(testShopInfo.getShopId()).isEqualTo(UPDATED_SHOP_ID);
-        assertThat(testShopInfo.getProjectId()).isEqualTo(UPDATED_PROJECT_ID);
         assertThat(testShopInfo.getShopName()).isEqualTo(UPDATED_SHOP_NAME);
     }
 

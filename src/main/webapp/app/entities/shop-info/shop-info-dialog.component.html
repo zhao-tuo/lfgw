@@ -1,4 +1,4 @@
-<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+<form name="editForm" role="form" novalidate (ngSubmit)="save(editForm)" ngForm="" #editForm="ngForm">
 
     <div class="modal-header">
         <h4 class="modal-title" id="myShopInfoLabel" jhiTranslate="lfgwApp.shopInfo.home.createOrEditLabel">Create or edit a Shop Info</h4>
@@ -28,21 +28,6 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="lfgwApp.shopInfo.projectId" for="field_projectId">Project Id</label>
-            <input type="number" class="form-control" name="projectId" id="field_projectId"
-                [(ngModel)]="shopInfo.projectId" required/>
-            <div [hidden]="!(editForm.controls.projectId?.dirty && editForm.controls.projectId?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.projectId?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-                <small class="form-text text-danger"
-                    [hidden]="!editForm.controls.projectId?.errors?.number" jhiTranslate="entity.validation.number">
-                    This field should be a number.
-                </small>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="lfgwApp.shopInfo.shopName" for="field_shopName">Shop Name</label>
             <input type="text" class="form-control" name="shopName" id="field_shopName"
                 [(ngModel)]="shopInfo.shopName" required/>
@@ -54,6 +39,19 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="lfgwApp.shopInfo.projectName" for="field_projectInfo">Project Name</label>
+            <select class="form-control" id="field_projectInfo" name="projectInfo" [(ngModel)]="shopInfo.projectInfoId"  required>
+                <option *ngIf="!editForm.value.projectInfo" [ngValue]="null" selected>请选择</option>
+                <option [ngValue]="projectInfoOption.id" *ngFor="let projectInfoOption of projectinfos; trackBy: trackProjectInfoById">{{projectInfoOption.projectName}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.projectInfo?.dirty && editForm.controls.projectInfo?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.projectInfo?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

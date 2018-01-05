@@ -108,7 +108,7 @@ public class ShardingJdbcConfiguration {
         TableRuleConfiguration shopInfoTableRuleConfig = new TableRuleConfiguration();
         shopInfoTableRuleConfig.setLogicTable("shop_info");
         shopInfoTableRuleConfig.setActualDataNodes("b1_db${1..2}.shop_info");
-        shopInfoTableRuleConfig.setDatabaseShardingStrategyConfig(new InlineShardingStrategyConfiguration("project_id","b1_db${project_id % 2 +1}"));
+        shopInfoTableRuleConfig.setDatabaseShardingStrategyConfig(new InlineShardingStrategyConfiguration("shop_id","b1_db${shop_id % 2 +1}"));
         //shopInfoTableRuleConfig.setKeyGeneratorColumnName("id");
 
         //table sale_amt1
