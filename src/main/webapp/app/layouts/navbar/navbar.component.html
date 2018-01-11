@@ -3,10 +3,17 @@
         <a class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
             <i class="fa fa-bars"></i>
         </a>
-        <a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">
+        <div class="c-title">
+            <button class="btn btn-light btn-xs" (click)="toggleNav();" placement="right" [ngbTooltip]="toggleDescTip">
+                <i class="fa fa-dedent fa-fw" [hidden]="navClose"></i>
+                <i class="fa fa-indent fa-fw" [hidden]="!navClose"></i>
+            </button>
+            <h3>首页</h3>
+        </div>
+        <!--<a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">
             <span class="logo-img"></span>
             <span jhiTranslate="global.title" class="navbar-title">Lfgw</span> <span class="navbar-version">{{version}}</span>
-        </a>
+        </a>-->
     </div>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">

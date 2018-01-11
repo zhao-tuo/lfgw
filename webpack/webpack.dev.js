@@ -64,7 +64,11 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         {
             test: /(vendor\.css|global\.css)/,
             loaders: ['style-loader', 'css-loader']
-        }]
+        },
+        {
+             test: /\.scss$/,
+             loaders: ['to-string-loader', 'css-loader', 'sass-loader'],
+        },]
     },
     plugins: [
         new BrowserSyncPlugin({

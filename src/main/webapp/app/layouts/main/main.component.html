@@ -1,11 +1,19 @@
-<jhi-page-ribbon></jhi-page-ribbon>
-<div>
-    <router-outlet name="navbar"></router-outlet>
-</div>
-<div class="container-fluid">
-    <div class="card jh-card">
-        <router-outlet></router-outlet>
-        <router-outlet name="popup"></router-outlet>
+<!--<jhi-page-ribbon></jhi-page-ribbon>-->
+<div class="c-wrapper">
+    <div class="c-left-wrapper"  [ngClass]="{'c-left-wrapper-c': navClose,'c-left-wrapper-o': !navClose}">
+        {{navClose}}
+        <jhi-tree></jhi-tree>
+    </div>
+    <div class="c-right-wrapper" [ngClass]="{'c-right-wrapper-c': navClose,'c-right-wrapper-o': !navClose}">
+        <div>
+            <!--<router-outlet name="navbar"></router-outlet>-->
+            <jhi-navbar (toggle)="toggleNav($event)"></jhi-navbar>
+        </div>
+        <div class="card jh-card">
+                <router-outlet></router-outlet>
+                <router-outlet name="popup"></router-outlet>
+        </div>
     </div>
     <jhi-footer></jhi-footer>
+
 </div>

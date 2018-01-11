@@ -24,6 +24,9 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
+import {TreeComponent} from "./layouts/tree/tree.component";
+import {SidebarMenuComponent} from "./layouts/tree/sidebar-menu.component";
+import {TreeviewMenuComponent} from "./layouts/tree/treeview-menu.component";
 
 @NgModule({
     imports: [
@@ -43,7 +46,10 @@ import {
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
-        FooterComponent
+        FooterComponent,
+        TreeComponent,
+        SidebarMenuComponent,
+        TreeviewMenuComponent
     ],
     providers: [
         ProfileService,

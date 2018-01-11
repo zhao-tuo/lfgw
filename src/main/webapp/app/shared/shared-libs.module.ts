@@ -5,8 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgJhipsterModule } from 'ng-jhipster';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CookieModule } from 'ngx-cookie';
-import {NgZorroAntdModule} from "ng-zorro-antd";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NgSelectModule } from "@ng-select/ng-select";
+
 
 @NgModule({
     imports: [
@@ -17,10 +17,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
             i18nEnabled: true,
             defaultI18nLang: 'zh-cn'
         }),
-        InfiniteScrollModule,
+        //TODO: just delete InfiniteScrollModule test if have error
+        //InfiniteScrollModule,
         CookieModule.forRoot(),
-        NgZorroAntdModule.forRoot()
-
     ],
     exports: [
         FormsModule,
@@ -28,8 +27,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         NgbModule,
         NgJhipsterModule,
         InfiniteScrollModule,
-        NgZorroAntdModule,
-        BrowserAnimationsModule
+        NgSelectModule
     ]
 })
 export class LfgwSharedLibsModule {}

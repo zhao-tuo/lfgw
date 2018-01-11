@@ -47,7 +47,8 @@ Generic styles
 
 .jh-card {
     padding: 1.5%;
-    margin-top: 20px;
+    /* delete margin-top by zhaotuo */
+    margin: 15px;
     border: none;
 }
 

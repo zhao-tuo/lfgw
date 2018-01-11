@@ -1,7 +1,13 @@
 <div>
     <h2>
         <span jhiTranslate="lfgwApp.shopInfo.home.title">Shop Infos</span>
-        <button class="btn btn-primary float-right jh-create-entity create-shop-info" [routerLink]="['/', { outlets: { popup: ['shop-info-new'] } }]">
+        <!--<button class="btn btn-primary float-right jh-create-entity create-shop-info" [routerLink]="['/', { outlets: { popup: ['shop-info-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="lfgwApp.shopInfo.home.createLabel">
+            Create new Shop Info
+            </span>
+        </button>-->
+        <button class="btn btn-primary float-right jh-create-entity create-shop-info" [routerLink]="['../shop-info', 'shop-info-new']">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="lfgwApp.shopInfo.home.createLabel">
             Create new Shop Info
@@ -42,13 +48,19 @@
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
+                                [routerLink]="['../shop-info',shopInfo.id,'edit']"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                       <!-- <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'shop-info/'+ shopInfo.id + '/edit'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
+                        </button>-->
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'shop-info/'+ shopInfo.id + '/delete'} }]"
                                 replaceUrl="true"

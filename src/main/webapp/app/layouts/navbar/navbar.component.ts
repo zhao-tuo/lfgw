@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
@@ -12,7 +12,7 @@ import { VERSION } from '../../app.constants';
     selector: 'jhi-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: [
-        'navbar.css'
+        'navbar.scss'
     ]
 })
 export class NavbarComponent implements OnInit {
@@ -22,6 +22,11 @@ export class NavbarComponent implements OnInit {
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+
+    @Output() toggle:EventEmitter<boolean>=new EventEmitter();
+    //tree开关提示
+    toggleDescTip:string = "点击关闭导航菜单";
+    private navClose:boolean = false;
 
     constructor(
         private loginService: LoginService,
@@ -75,5 +80,16 @@ export class NavbarComponent implements OnInit {
 
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
+    }
+
+    //切换导航
+    toggleNav(){
+        this.navClose = !this.navClose;
+        this.toggle.emit(!this.navClose);
+        if (this.navClose) {
+            this.toggleDescTip = "点击展开导航菜单";
+        } else {
+            this.toggleDescTip = "点击关闭导航菜单";
+        }
     }
 }

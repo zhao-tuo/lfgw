@@ -1,0 +1,88 @@
+/* ==========================================================================
+tree
+========================================================================== */
+@import '../../../content/scss/app-base.scss';
+
+.tree{
+    width: 280px;
+    height: 400px;
+    background-color: green;
+}
+
+.logo .logo-img {
+    height: 45px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 70px;
+}
+
+.logo-img {
+    height: 100%;
+    background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
+    background-size: contain;
+    width: 100%;
+}
+
+.c-header-profile {
+    width: 235px;
+    height: 125px;
+    margin-top: 20px;
+    text-align: center;
+img {
+    width: 88px;
+    height: 88px;
+    -webkit-box-shadow: $c-img-shadow;
+    box-shadow: $c-img-shadow;
+    -moz-box-shadow:$c-img-shadow;
+    cursor: pointer;
+}
+.c-user-profile {
+    margin-top: 5px;
+& > span {
+      color: $c-color-gray-primary;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+  }
+}
+.dropdown-menu {
+    margin-left: -35px;
+.dropdown-item {
+    height: 35px;
+    line-height: 0px;
+    cursor: pointer;
+}
+}
+}
+.c-header {
+    height: 59px;
+    background-color: $c-color-dark;
+    border-bottom:1px solid $c-color-dark;
+& > img {
+      margin-left: 15px;
+      border-radius: 50%;
+      -webkit-box-shadow: $c-header-shadow;
+      box-shadow: $c-header-shadow;
+      -moz-box-shadow: $c-header-shadow;
+      background-color: $c-color-deep;
+&:hover {
+     -moz-transition: all 0.5s ease-in-out;
+     -webkit-transition: all 0.5s ease-in-out;
+     -o-transition: all 0.5s ease-in-out;
+     -ms-transition: all 0.5s ease-in-out;
+     transition: all 0.5s ease-in-out;
+     -moz-transform: rotateY(-360deg);
+     -webkit-transform: rotateY(-360deg);
+     -o-transform: rotateY(-360deg);
+     -ms-transform: rotateY(-360deg);
+     transform: rotateY(-360deg);
+ }
+}
+& > h3 {
+      display: inline-block;
+      vertical-align: -5px;
+      margin-top: 15px;
+      color: $c-color-gray-secondary;
+      font-size: 1.7em;
+  }
+}

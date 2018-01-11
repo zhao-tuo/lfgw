@@ -1,0 +1,21 @@
+<div class="c-header">
+    <!--<a class = "logo">
+        <span class="logo-img"></span>
+    </a>-->
+    <img src="../../../content/img/logo.png" />
+    <h3>后台管理系统</h3>
+</div>
+<div class="c-header-profile">
+    <div ngbDropdown>
+        <img alt="image" class="rounded-circle" src="../../../content/img/user-header.png" (click)="avatarReplacement()"/>
+        <div class="c-user-profile">
+            <span ngbDropdownToggle>{{mainData.userData.userName}}</span>
+        </div>
+        <div ngbDropdownMenu  class="dropdown-menu animated fadeIn">
+            <button class="dropdown-item" (click)="userInfo()"><i class="fa  fa-user-circle-o  fa-fw"></i> 个人资料</button>
+            <button class="dropdown-item" (click)="passwordEdit()"><i class="fa  fa-key fa-fw"></i> 修改密码</button>
+            <button class="dropdown-item" (click)="exitSys()"><i class="fa  fa-sign-out fa-fw"></i> 退出系统</button>
+        </div>
+    </div>
+</div>
+<c-sidebar-menu [data]="mainData.menuData"></c-sidebar-menu>

@@ -1,3 +1,4 @@
+@import '../../../content/scss/app-base.scss';
 /* ==========================================================================
 Navbar
 ========================================================================== */
@@ -7,7 +8,7 @@ Navbar
 }
 
 .jh-navbar {
-    background-color: #353d47;
+    background-color: $c-color-white;
     padding: .2em 1em;
 }
 
@@ -36,6 +37,11 @@ Navbar
 
 .jh-navbar a.nav-link {
     font-weight: 400;
+    color: $c-color-black-primary;
+    &:hover {
+        background: $c-color-white-gray;
+        cursor: pointer;
+    }
 }
 
 .jh-navbar .jh-navbar-toggler {
@@ -84,4 +90,66 @@ Logo styles
     background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
     background-size: contain;
     width: 100%;
+}
+
+.c-title {
+    padding-left: 15px;
+    float: left;
+    button {
+        vertical-align: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 6px;
+        padding-right: 6px;
+        cursor: pointer;
+        border-radius: 1px;
+    }
+    h3 {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: $c-color-black-primary;
+        margin-left: 8px;
+        vertical-align: -1px;
+        display: inline-flex;
+    }
+}
+.c-tools {
+    position: inherit;
+    padding-right: 25px;
+.nav-pills {
+.c-item {
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: 0.35s;
+    -moz-transition: 0.35s;
+    -webkit-transition: 0.35s;
+    -o-transition: 0.35s;
+    float: left;
+    font-size: 15px;
+&:hover {
+     background: $c-color-white-gray;
+     cursor: pointer;
+ }
+}
+.c-user {
+    padding-left: 16px;
+    padding-right: 6px;
+    margin-left: 10px;
+    width: 139px;
+    cursor: pointer;
+img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-top: -3px;
+}
+.dropdown-menu {
+.dropdown-item {
+    height: 35px;
+    line-height: 0px;
+    cursor: pointer;
+}
+}
+}
+}
 }

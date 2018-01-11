@@ -15,6 +15,7 @@ import {
     shopInfoPopupRoute,
     ShopInfoResolvePagingParams,
 } from './';
+import {ShopInfoSaveComponent} from "./shop-info-save.component";
 
 const ENTITY_STATES = [
     ...shopInfoRoute,
@@ -33,6 +34,7 @@ const ENTITY_STATES = [
         ShopInfoDeleteDialogComponent,
         ShopInfoPopupComponent,
         ShopInfoDeletePopupComponent,
+        ShopInfoSaveComponent,
     ],
     entryComponents: [
         ShopInfoComponent,
@@ -40,6 +42,7 @@ const ENTITY_STATES = [
         ShopInfoPopupComponent,
         ShopInfoDeleteDialogComponent,
         ShopInfoDeletePopupComponent,
+        ShopInfoSaveComponent,
     ],
     providers: [
         ShopInfoService,

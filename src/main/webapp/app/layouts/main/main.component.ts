@@ -5,9 +5,12 @@ import { JhiLanguageHelper } from '../../shared';
 
 @Component({
     selector: 'jhi-main',
-    templateUrl: './main.component.html'
+    templateUrl: './main.component.html',
+    styleUrls:['./main.component.scss']
 })
 export class JhiMainComponent implements OnInit {
+    //nav tree 开关
+    navClose:boolean = false;
 
     constructor(
         private jhiLanguageHelper: JhiLanguageHelper,
@@ -28,5 +31,10 @@ export class JhiMainComponent implements OnInit {
                 this.jhiLanguageHelper.updateTitle(this.getPageTitle(this.router.routerState.snapshot.root));
             }
         });
+    }
+
+    //切换导航
+    toggleNav(flag:boolean){
+        this.navClose = flag;
     }
 }

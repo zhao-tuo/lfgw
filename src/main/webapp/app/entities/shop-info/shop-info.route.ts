@@ -7,6 +7,7 @@ import { ShopInfoComponent } from './shop-info.component';
 import { ShopInfoDetailComponent } from './shop-info-detail.component';
 import { ShopInfoPopupComponent } from './shop-info-dialog.component';
 import { ShopInfoDeletePopupComponent } from './shop-info-delete-dialog.component';
+import { ShopInfoSaveComponent } from "./shop-info-save.component";
 
 @Injectable()
 export class ShopInfoResolvePagingParams implements Resolve<any> {
@@ -31,6 +32,22 @@ export const shopInfoRoute: Routes = [
         resolve: {
             'pagingParams': ShopInfoResolvePagingParams
         },
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'lfgwApp.shopInfo.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
+        path: 'shop-info/shop-info-new',
+        component: ShopInfoSaveComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'lfgwApp.shopInfo.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
+        path: 'shop-info/:id/edit',
+        component: ShopInfoSaveComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'lfgwApp.shopInfo.home.title'

@@ -1,0 +1,29 @@
+@import '../../../content/scss/app-base.scss';
+
+.c-wrapper {
+    width: 100%;
+    height: 90vh;
+    .c-left-wrapper {
+        height: calc(100vh - 2.5rem);
+        background-color: $c-color-dark;
+        float: left;
+        display: block;
+    }
+    .c-left-wrapper-o {
+        width: 235px;
+    }
+    .c-left-wrapper-c {
+        width: 0px;
+        display: none;
+    }
+    .c-right-wrapper {
+        height: calc(100vh - 2.5rem);
+        background-color: $c-color-white-gray;
+    }
+    .c-right-wrapper-o {
+        margin-left: 235px;
+    }
+    .c-right-wrapper-c {
+        margin-left: 0px;
+    }
+}
