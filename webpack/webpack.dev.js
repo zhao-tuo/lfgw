@@ -57,6 +57,13 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             exclude: ['node_modules/generator-jhipster']
         },
         {
+             test: /\.(ts|js)$/,
+             loaders: [
+                  'angular-router-loader'
+             ],
+             exclude: ['node_modules/generator-jhipster']
+        },
+        {
             test: /\.css$/,
             loaders: ['to-string-loader', 'css-loader'],
             exclude: /(vendor\.css|global\.css)/

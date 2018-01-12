@@ -296,6 +296,12 @@ amdefine@>=0.0.4, amdefine@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/amdefine/download/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-router-loader@^0.8.2:
+  version "0.8.2"
+  resolved "http://registry.npm.taobao.org/angular-router-loader/download/angular-router-loader-0.8.2.tgz#989bdf33d9ed197fe62a66e0871fa159787ba420"
+  dependencies:
+    loader-utils "^1.0.2"
+
 angular2-template-loader@0.6.2:
   version "0.6.2"
   resolved "http://registry.npm.taobao.org/angular2-template-loader/download/angular2-template-loader-0.6.2.tgz#c0d44e90fff0fac95e8b23f043acda7fd1c51d7c"

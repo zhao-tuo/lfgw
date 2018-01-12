@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { errorRoute, navbarRoute } from './layouts';
+import {RouterModule, Routes} from '@angular/router';
+import { JhiMainComponent } from './layouts';
+import {AppComponent} from "./app.component";
 
-const LAYOUT_ROUTES = [
-    navbarRoute,
-    ...errorRoute
+const ROOT_ROUTES:Routes = [
+    {
+        path:'',redirectTo:'/login',pathMatch:'full'
+    }
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(LAYOUT_ROUTES, { useHash: true })
+        RouterModule.forRoot(ROOT_ROUTES, { useHash: true })
     ],
     exports: [
         RouterModule

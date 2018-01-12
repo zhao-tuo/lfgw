@@ -14,19 +14,9 @@ import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-
-import {
-    JhiMainComponent,
-    NavbarComponent,
-    FooterComponent,
-    ProfileService,
-    PageRibbonComponent,
-    ActiveMenuDirective,
-    ErrorComponent
-} from './layouts';
-import {TreeComponent} from "./layouts/tree/tree.component";
-import {SidebarMenuComponent} from "./layouts/tree/sidebar-menu.component";
-import {TreeviewMenuComponent} from "./layouts/tree/treeview-menu.component";
+import { AppComponent } from './app.component';
+import {LoginModule} from "./login/login.module";
+import {LayoutsModule} from "./layouts/layouts.module";
 
 @NgModule({
     imports: [
@@ -34,29 +24,14 @@ import {TreeviewMenuComponent} from "./layouts/tree/treeview-menu.component";
         LfgwAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
         LfgwSharedModule,
-        LfgwHomeModule,
-        LfgwAdminModule,
-        LfgwAccountModule,
-        LfgwEntityModule,
-        // jhipster-needle-angular-add-module JHipster will add new module here
+        LoginModule,
+        LayoutsModule
     ],
     declarations: [
-        JhiMainComponent,
-        NavbarComponent,
-        ErrorComponent,
-        PageRibbonComponent,
-        ActiveMenuDirective,
-        FooterComponent,
-        TreeComponent,
-        SidebarMenuComponent,
-        TreeviewMenuComponent
+        AppComponent,
     ],
     providers: [
-        ProfileService,
-        customHttpProvider(),
-        PaginationConfig,
-        UserRouteAccessService
     ],
-    bootstrap: [ JhiMainComponent ]
+    bootstrap: [ AppComponent ]
 })
 export class LfgwAppModule {}
