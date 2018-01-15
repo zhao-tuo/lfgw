@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {  Router } from '@angular/router';
-import  { MenuData }    from './main-model';
+import  { MenuData }    from '../main/main.model';
 /**
  * 菜单树组件
  */

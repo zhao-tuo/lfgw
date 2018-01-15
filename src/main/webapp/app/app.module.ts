@@ -27,6 +27,7 @@ import {
 import {TreeComponent} from "./layouts/tree/tree.component";
 import {SidebarMenuComponent} from "./layouts/tree/sidebar-menu.component";
 import {TreeviewMenuComponent} from "./layouts/tree/treeview-menu.component";
+import {JhiMainService} from "./layouts/main/main.service";
 
 @NgModule({
     imports: [
@@ -55,7 +56,8 @@ import {TreeviewMenuComponent} from "./layouts/tree/treeview-menu.component";
         ProfileService,
         customHttpProvider(),
         PaginationConfig,
-        UserRouteAccessService
+        UserRouteAccessService,
+        JhiMainService
     ],
     bootstrap: [ JhiMainComponent ]
 })

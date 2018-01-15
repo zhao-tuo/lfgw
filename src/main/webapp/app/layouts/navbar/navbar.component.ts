@@ -7,6 +7,7 @@ import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';
 
 import { VERSION } from '../../app.constants';
+import {JhiMainService} from "../main/main.service";
 
 @Component({
     selector: 'jhi-navbar',
@@ -35,7 +36,8 @@ export class NavbarComponent implements OnInit {
         private principal: Principal,
         private loginModalService: LoginModalService,
         private profileService: ProfileService,
-        private router: Router
+        private router: Router,
+        private mainService:JhiMainService
     ) {
         this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
@@ -85,11 +87,15 @@ export class NavbarComponent implements OnInit {
     //切换导航
     toggleNav(){
         this.navClose = !this.navClose;
-        this.toggle.emit(!this.navClose);
+        this.toggle.emit(this.navClose);
         if (this.navClose) {
             this.toggleDescTip = "点击展开导航菜单";
         } else {
             this.toggleDescTip = "点击关闭导航菜单";
         }
+    }
+
+    switchMenu(menuId:string){
+        this.mainService.switchMenu.emit(menuId);
     }
 }
