@@ -1,0 +1,26 @@
+{
+    "lfgwApp": {
+        "menuData" : {
+            "home": {
+                "title": "Menu Data",
+                "createLabel": "创建新 Menu Data",
+                "createOrEditLabel": "创建或编辑 Menu Data"
+            },
+            "created": "Menu Data {{ param }} 创建成功",
+            "updated": "Menu Data {{ param }} 更新成功",
+            "deleted": "Menu Data {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Menu Data {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Menu Data"
+            },
+            "name": "Name",
+            "keyWord": "Key Word",
+            "icon": "Icon",
+            "url": "Url",
+            "expended": "Expended",
+            "parent": "Parent"
+        }
+    }
+}

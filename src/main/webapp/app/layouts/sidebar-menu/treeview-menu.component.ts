@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {  Router } from '@angular/router';
-import  { MenuData }    from '../main/main.model';
+import { MenuData } from '../../entities/menu-data';
 /**
  * 菜单树组件
  */
@@ -11,7 +11,7 @@ import  { MenuData }    from '../main/main.model';
           <li *ngFor="let item of data.children">
               <a  (click)="itemClicked(item);">
                   <i class="fa " [ngClass]="item.icon"></i> <span>{{item.name}}</span>   
-                  <i style="margin-top:3px;width:17px" class="fa  pull-right"  [ngClass]="{'fa-angle-down': !isLeaf(item) && item.isExpend, 'fa-angle-left': !isLeaf(item) && !item.isExpend}"></i>
+                  <i style="margin-top:3px;width:17px" class="fa  pull-right"  [ngClass]="{'fa-angle-down': !isLeaf(item) && item.expended, 'fa-angle-left': !isLeaf(item) && !item.expended}"></i>
                </a>
               <c-treeview-menu [data]="item"></c-treeview-menu>
           </li>
@@ -42,7 +42,7 @@ export class TreeviewMenuComponent {
    */
   itemClicked(item: MenuData) {
     if (!this.isLeaf(item)) {
-      item.isExpend = !item.isExpend;
+      item.expended = !item.expended;
     } else {
        this.router.navigate([item.url]);
     }

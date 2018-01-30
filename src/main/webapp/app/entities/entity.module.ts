@@ -5,6 +5,7 @@ import { LfgwProjectTransactionRecordModule } from './project-transaction-record
 import { LfgwShopInfoModule } from './shop-info/shop-info.module';
 import { LfgwSaleAmt1Module } from './sale-amt-1/sale-amt-1.module';
 import { LfgwSaleAmt2Module } from './sale-amt-2/sale-amt-2.module';
+import { LfgwMenuDataModule } from './menu-data/menu-data.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -14,6 +15,7 @@ import { LfgwSaleAmt2Module } from './sale-amt-2/sale-amt-2.module';
         LfgwShopInfoModule,
         LfgwSaleAmt1Module,
         LfgwSaleAmt2Module,
+        LfgwMenuDataModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

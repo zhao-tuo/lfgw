@@ -9,6 +9,5 @@ export * from './navbar/active-menu.directive';
 export * from './profiles/page-ribbon.component';
 export * from './profiles/profile.service';
 export * from './profiles/profile-info.model';
-export * from './tree/tree.component';
-export * from './tree/sidebar-menu.component';
-export * from './tree/treeview-menu.component';
+export * from './sidebar-menu/sidebar-menu.component';
+export * from './sidebar-menu/treeview-menu.component';

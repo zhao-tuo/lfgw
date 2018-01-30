@@ -12,6 +12,7 @@
                 "shopInfo": "Shop Info",
                 "saleAmt1": "Sale Amt 1",
                 "saleAmt2": "Sale Amt 2",
+                "menuData": "Menu Data",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

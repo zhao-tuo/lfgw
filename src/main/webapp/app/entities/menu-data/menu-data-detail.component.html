@@ -1,0 +1,48 @@
+
+<div *ngIf="menuData">
+    <h2><span jhiTranslate="lfgwApp.menuData.detail.title">Menu Data</span> {{menuData.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="lfgwApp.menuData.name">Name</span></dt>
+        <dd>
+            <span>{{menuData.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.menuData.keyWord">Key Word</span></dt>
+        <dd>
+            <span>{{menuData.keyWord}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.menuData.icon">Icon</span></dt>
+        <dd>
+            <span>{{menuData.icon}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.menuData.url">Url</span></dt>
+        <dd>
+            <span>{{menuData.url}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.menuData.expended">Expended</span></dt>
+        <dd>
+            <span>{{menuData.expended}}</span>
+        </dd>
+        <dt><span jhiTranslate="lfgwApp.menuData.parent">Parent</span></dt>
+        <dd>
+            <div *ngIf="menuData.parentId">
+                <a [routerLink]="['/menu-data', menuData.parentId]">{{menuData.parentId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'menu-data/'+ menuData.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

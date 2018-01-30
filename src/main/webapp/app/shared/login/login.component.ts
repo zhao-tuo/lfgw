@@ -5,6 +5,7 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginService } from './login.service';
 import { StateStorageService } from '../auth/state-storage.service';
+import {JhiMainService} from "../../layouts/main/main.service";
 
 @Component({
     selector: 'jhi-login-modal',
@@ -24,7 +25,8 @@ export class JhiLoginModalComponent implements AfterViewInit {
         private elementRef: ElementRef,
         private renderer: Renderer,
         private router: Router,
-        public activeModal: NgbActiveModal
+        public activeModal: NgbActiveModal,
+        private jhiMainService: JhiMainService
     ) {
         this.credentials = {};
     }
@@ -49,6 +51,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
             password: this.password,
             rememberMe: this.rememberMe
         }).then(() => {
+            this.jhiMainService.refreshMenuData();
             this.authenticationError = false;
             this.activeModal.dismiss('login success');
             if (this.router.url === '/register' || (/^\/activate\//.test(this.router.url)) ||

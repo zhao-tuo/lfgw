@@ -10,7 +10,7 @@ import { JhiLanguageHelper } from '../../shared';
 })
 export class JhiMainComponent implements OnInit {
     //nav tree 开关
-    navClose:boolean = false;
+    navClose:boolean = true;
 
     constructor(
         private jhiLanguageHelper: JhiLanguageHelper,
