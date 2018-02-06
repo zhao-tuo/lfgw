@@ -40,7 +40,7 @@ public class ShardingJdbcConfiguration {
         main.setDriverClassName("com.mysql.jdbc.Driver");
         main.setJdbcUrl("jdbc:mysql://192.168.36.109:3306/main?useUnicode=true&characterEncoding=utf8&useSSL=false");
         main.setPassword("123456");
-        main.setUsername("root");
+        main.setUsername("jhigateway");
         main.setDataSourceProperties(dataSourceProperties);
         dataSourceMap.put("main",main);
 
@@ -48,14 +48,14 @@ public class ShardingJdbcConfiguration {
         b1Main.setDriverClassName("com.mysql.jdbc.Driver");
         b1Main.setJdbcUrl("jdbc:mysql://192.168.36.109:3306/b1_main?useUnicode=true&characterEncoding=utf8&useSSL=false");
         b1Main.setPassword("123456");
-        b1Main.setUsername("root");
+        b1Main.setUsername("jhigateway");
         b1Main.setDataSourceProperties(dataSourceProperties);
         dataSourceMap.put("b1_main",b1Main);
 
         HikariDataSource b1Db1 = new HikariDataSource();
         b1Db1.setDriverClassName("com.mysql.jdbc.Driver");
         b1Db1.setJdbcUrl("jdbc:mysql://192.168.36.109:3306/b1_db1?useUnicode=true&characterEncoding=utf8&useSSL=false");
-        b1Db1.setUsername("root");
+        b1Db1.setUsername("jhigateway");
         b1Db1.setPassword("123456");
         b1Db1.setDataSourceProperties(dataSourceProperties);
         dataSourceMap.put("b1_db1",b1Db1);
@@ -63,7 +63,7 @@ public class ShardingJdbcConfiguration {
         HikariDataSource b1Db2 = new HikariDataSource();
         b1Db2.setDriverClassName("com.mysql.jdbc.Driver");
         b1Db2.setJdbcUrl("jdbc:mysql://192.168.36.109:3306/b1_db2?useUnicode=true&characterEncoding=utf8&useSSL=false");
-        b1Db2.setUsername("root");
+        b1Db2.setUsername("jhigateway");
         b1Db2.setPassword("123456");
         b1Db2.setDataSourceProperties(dataSourceProperties);
         dataSourceMap.put("b1_db2",b1Db2);
@@ -72,14 +72,14 @@ public class ShardingJdbcConfiguration {
         b2Main.setDriverClassName("com.mysql.jdbc.Driver");
         b2Main.setJdbcUrl("jdbc:mysql://192.168.36.109:3306/b2_main?useUnicode=true&characterEncoding=utf8&useSSL=false");
         b2Main.setPassword("123456");
-        b2Main.setUsername("root");
+        b2Main.setUsername("jhigateway");
         b2Main.setDataSourceProperties(dataSourceProperties);
         dataSourceMap.put("b2_main",b2Main);
 
         HikariDataSource b2Db1 = new HikariDataSource();
         b2Db1.setDriverClassName("com.mysql.jdbc.Driver");
         b2Db1.setJdbcUrl("jdbc:mysql://192.168.36.109:3306/b2_db1?useUnicode=true&characterEncoding=utf8&useSSL=false");
-        b2Db1.setUsername("root");
+        b2Db1.setUsername("jhigateway");
         b2Db1.setPassword("123456");
         b2Db1.setDataSourceProperties(dataSourceProperties);
         dataSourceMap.put("b2_db1",b2Db1);
@@ -87,7 +87,7 @@ public class ShardingJdbcConfiguration {
         HikariDataSource b2Db2 = new HikariDataSource();
         b2Db2.setDriverClassName("com.mysql.jdbc.Driver");
         b2Db2.setJdbcUrl("jdbc:mysql://192.168.36.109:3306/b2_db2?useUnicode=true&characterEncoding=utf8&useSSL=false");
-        b2Db2.setUsername("root");
+        b2Db2.setUsername("jhigateway");
         b2Db2.setPassword("123456");
         b2Db2.setDataSourceProperties(dataSourceProperties);
         dataSourceMap.put("b2_db2",b2Db2);

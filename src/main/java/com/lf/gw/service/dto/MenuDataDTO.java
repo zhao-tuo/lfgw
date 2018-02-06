@@ -26,6 +26,11 @@ public class MenuDataDTO implements Serializable {
 
     private Boolean expended = false;
 
+    @NotNull
+    @Min(value = 0)
+    @Max(value = 2)
+    private Integer menuType;
+
     private Long parentId;
 
     private String parentName;
@@ -96,6 +101,14 @@ public class MenuDataDTO implements Serializable {
         this.expended = expended;
     }
 
+    public Integer getMenuType() {
+        return menuType;
+    }
+
+    public void setMenuType(Integer menuType) {
+        this.menuType = menuType;
+    }
+
     public Long getParentId() {
         return parentId;
     }
@@ -134,6 +147,7 @@ public class MenuDataDTO implements Serializable {
             ", icon='" + getIcon() + "'" +
             ", url='" + getUrl() + "'" +
             ", expended='" + isExpended() + "'" +
+            ", menuType=" + getMenuType() +
             "}";
     }
 }

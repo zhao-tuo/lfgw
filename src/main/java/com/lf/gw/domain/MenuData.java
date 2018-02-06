@@ -42,6 +42,12 @@ public class MenuData implements Serializable {
     @Column(name = "expended")
     private Boolean expended;
 
+    @NotNull
+    @Min(value = 0)
+    @Max(value = 2)
+    @Column(name = "menu_type", nullable = false)
+    private Integer menuType;
+
     @ManyToOne
     private MenuData parent;
 
@@ -119,6 +125,19 @@ public class MenuData implements Serializable {
         this.expended = expended;
     }
 
+    public Integer getMenuType() {
+        return menuType;
+    }
+
+    public MenuData menuType(Integer menuType) {
+        this.menuType = menuType;
+        return this;
+    }
+
+    public void setMenuType(Integer menuType) {
+        this.menuType = menuType;
+    }
+
     public MenuData getParent() {
         return parent;
     }
@@ -162,6 +181,7 @@ public class MenuData implements Serializable {
             ", icon='" + getIcon() + "'" +
             ", url='" + getUrl() + "'" +
             ", expended='" + isExpended() + "'" +
+            ", menuType=" + getMenuType() +
             "}";
     }
 }

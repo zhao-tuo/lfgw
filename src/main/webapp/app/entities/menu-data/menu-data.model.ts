@@ -8,6 +8,7 @@ export class MenuData implements BaseEntity {
         public icon?: string,
         public url?: string,
         public expended?: boolean,
+        public menuType?: number,
         public parentId?: number,
         public parentName?:string,
         public children?:MenuData[]

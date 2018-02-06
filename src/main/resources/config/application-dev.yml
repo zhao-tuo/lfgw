@@ -40,7 +40,7 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://192.168.36.109:3306/main?useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: root
+        username: jhigateway
         password: 123456
         hikari:
             data-source-properties:

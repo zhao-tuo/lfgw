@@ -42,6 +42,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="menu_type" type="integer">
+                <constraints nullable="false" />
+            </column>
+
             <column name="parent_id" type="bigint">
                 <constraints nullable="true" />
             </column>

@@ -41,6 +41,17 @@
         {
             "fieldName": "expended",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "menuType",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "2"
         }
     ],
     "changelogDate": "20180115074702",

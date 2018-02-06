@@ -56,6 +56,9 @@ public class MenuDataResourceIntTest {
     private static final Boolean DEFAULT_EXPENDED = false;
     private static final Boolean UPDATED_EXPENDED = true;
 
+    private static final Integer DEFAULT_MENU_TYPE = 0;
+    private static final Integer UPDATED_MENU_TYPE = 1;
+
     @Autowired
     private MenuDataRepository menuDataRepository;
 
@@ -104,7 +107,8 @@ public class MenuDataResourceIntTest {
             .keyWord(DEFAULT_KEY_WORD)
             .icon(DEFAULT_ICON)
             .url(DEFAULT_URL)
-            .expended(DEFAULT_EXPENDED);
+            .expended(DEFAULT_EXPENDED)
+            .menuType(DEFAULT_MENU_TYPE);
         return menuData;
     }
 
@@ -134,6 +138,7 @@ public class MenuDataResourceIntTest {
         assertThat(testMenuData.getIcon()).isEqualTo(DEFAULT_ICON);
         assertThat(testMenuData.getUrl()).isEqualTo(DEFAULT_URL);
         assertThat(testMenuData.isExpended()).isEqualTo(DEFAULT_EXPENDED);
+        assertThat(testMenuData.getMenuType()).isEqualTo(DEFAULT_MENU_TYPE);
     }
 
     @Test
@@ -234,6 +239,25 @@ public class MenuDataResourceIntTest {
 
     @Test
     @Transactional
+    public void checkMenuTypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = menuDataRepository.findAll().size();
+        // set the field null
+        menuData.setMenuType(null);
+
+        // Create the MenuData, which fails.
+        MenuDataDTO menuDataDTO = menuDataMapper.toDto(menuData);
+
+        restMenuDataMockMvc.perform(post("/api/menu-data")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(menuDataDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<MenuData> menuDataList = menuDataRepository.findAll();
+        assertThat(menuDataList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllMenuData() throws Exception {
         // Initialize the database
         menuDataRepository.saveAndFlush(menuData);
@@ -247,7 +271,8 @@ public class MenuDataResourceIntTest {
             .andExpect(jsonPath("$.[*].keyWord").value(hasItem(DEFAULT_KEY_WORD.toString())))
             .andExpect(jsonPath("$.[*].icon").value(hasItem(DEFAULT_ICON.toString())))
             .andExpect(jsonPath("$.[*].url").value(hasItem(DEFAULT_URL.toString())))
-            .andExpect(jsonPath("$.[*].expended").value(hasItem(DEFAULT_EXPENDED.booleanValue())));
+            .andExpect(jsonPath("$.[*].expended").value(hasItem(DEFAULT_EXPENDED.booleanValue())))
+            .andExpect(jsonPath("$.[*].menuType").value(hasItem(DEFAULT_MENU_TYPE)));
     }
 
     @Test
@@ -265,7 +290,8 @@ public class MenuDataResourceIntTest {
             .andExpect(jsonPath("$.keyWord").value(DEFAULT_KEY_WORD.toString()))
             .andExpect(jsonPath("$.icon").value(DEFAULT_ICON.toString()))
             .andExpect(jsonPath("$.url").value(DEFAULT_URL.toString()))
-            .andExpect(jsonPath("$.expended").value(DEFAULT_EXPENDED.booleanValue()));
+            .andExpect(jsonPath("$.expended").value(DEFAULT_EXPENDED.booleanValue()))
+            .andExpect(jsonPath("$.menuType").value(DEFAULT_MENU_TYPE));
     }
 
     @Test
@@ -292,7 +318,8 @@ public class MenuDataResourceIntTest {
             .keyWord(UPDATED_KEY_WORD)
             .icon(UPDATED_ICON)
             .url(UPDATED_URL)
-            .expended(UPDATED_EXPENDED);
+            .expended(UPDATED_EXPENDED)
+            .menuType(UPDATED_MENU_TYPE);
         MenuDataDTO menuDataDTO = menuDataMapper.toDto(updatedMenuData);
 
         restMenuDataMockMvc.perform(put("/api/menu-data")
@@ -309,6 +336,7 @@ public class MenuDataResourceIntTest {
         assertThat(testMenuData.getIcon()).isEqualTo(UPDATED_ICON);
         assertThat(testMenuData.getUrl()).isEqualTo(UPDATED_URL);
         assertThat(testMenuData.isExpended()).isEqualTo(UPDATED_EXPENDED);
+        assertThat(testMenuData.getMenuType()).isEqualTo(UPDATED_MENU_TYPE);
     }
 
     @Test

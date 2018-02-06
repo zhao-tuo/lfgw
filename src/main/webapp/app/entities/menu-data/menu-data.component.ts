@@ -47,13 +47,14 @@ currentAccount: any;
     }
 
     loadAll() {
-        this.menuDataService.query({
+       /*this.menuDataService.query({
             page: this.page - 1,
             size: this.itemsPerPage,
             sort: this.sort()}).subscribe(
             (res: ResponseWrapper) => this.onSuccess(res.json, res.headers),
             (res: ResponseWrapper) => this.onError(res.json)
-        );
+        );*/
+       this.menuDataService.findRootMenuData().subscribe((data)=>this.menuData=data);
     }
     loadPage(page: number) {
         if (page !== this.previousPage) {

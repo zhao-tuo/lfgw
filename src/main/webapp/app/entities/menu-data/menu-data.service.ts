@@ -10,6 +10,7 @@ import { ResponseWrapper, createRequestOption } from '../../shared';
 export class MenuDataService {
 
     private resourceUrl = SERVER_API_URL + 'api/menu-data';
+    private resourceRootUrl = SERVER_API_URL + 'api/_root/menu-data';
 
     constructor(private http: Http) { }
 
@@ -69,5 +70,12 @@ export class MenuDataService {
     private convert(menuData: MenuData): MenuData {
         const copy: MenuData = Object.assign({}, menuData);
         return copy;
+    }
+
+    findRootMenuData() :Observable<MenuData[]>{
+        return this.http.get(this.resourceRootUrl).map((res: Response) => {
+            console.log(JSON.stringify(res.json()));
+            return res.json();
+        });
     }
 }

@@ -6,17 +6,7 @@ import { MenuData } from '../../entities/menu-data';
  */
 @Component({
   selector: 'c-treeview-menu',
-  template: `
-    <ul class="c-treeview-menu" [hidden]="!data.isExpend"  *ngIf="!isLeaf(data)">
-          <li *ngFor="let item of data.children">
-              <a  (click)="itemClicked(item);">
-                  <i class="fa " [ngClass]="item.icon"></i> <span>{{item.name}}</span>   
-                  <i style="margin-top:3px;width:17px" class="fa  pull-right"  [ngClass]="{'fa-angle-down': !isLeaf(item) && item.expended, 'fa-angle-left': !isLeaf(item) && !item.expended}"></i>
-               </a>
-              <c-treeview-menu [data]="item"></c-treeview-menu>
-          </li>
-    </ul>
-  `,
+  templateUrl:'./treeview-menu.component.html',
   styleUrls:['./treeview-menu.component.scss']
 })
 

@@ -20,6 +20,7 @@
             "icon": "Icon",
             "url": "Url",
             "expended": "Expended",
+            "menuType": "Menu Type",
             "parent": "Parent"
         }
     }
